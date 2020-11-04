@@ -52,4 +52,19 @@ public class MyLinkedListTest {
 					MyLinkedList.tail.equals(myThirdNode);
 		Assert.assertEquals(true, result);
 	}
+	
+	//UC5 Deleting First Element
+	@Test
+	public void given3Numbers_deleteFirstElement() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+		MyLinkedList<Integer> myList = new MyLinkedList<Integer>();
+		myList.appendElements(myFirstNode);
+		myList.appendElements(mySecondNode);
+		myList.appendElements(myThirdNode);
+		myList.deleteElement();
+		boolean result = MyLinkedList.head.equals(mySecondNode);
+		Assert.assertEquals(true, result);
+	}
 }

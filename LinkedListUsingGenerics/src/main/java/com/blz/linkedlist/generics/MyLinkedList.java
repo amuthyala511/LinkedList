@@ -40,4 +40,11 @@ public class MyLinkedList<K> {
 		node.setNext(newNode);
 		newNode.setNext(tempNode);
 	}
+	
+	//UC5 Deleting First element
+	public INode<K> deleteElement() {
+		INode<K> tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
+	}
 }
