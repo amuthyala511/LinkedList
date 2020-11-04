@@ -9,6 +9,7 @@ public class MyLinkedList<K> {
 		this.tail = null;
 	}
 
+	//UC2 Adding Elements at the top
 	public void add(INode<K> newNode) {
 		if(this.tail == null && this.head == null) {
 			this.tail = newNode;
@@ -18,6 +19,18 @@ public class MyLinkedList<K> {
 			INode<K> tempNode = this.head;
 			this.head = newNode;
 			this.head.setNext(tempNode);
+		}
+	}
+	
+	//UC3 Appending Elements
+	public void appendElements(INode<K> newNode) {
+		if(this.tail == null && this.head == null) {
+			this.tail = newNode;
+			this.head = newNode;
+		}
+		else {
+			this.tail.setNext(newNode);
+			this.tail = newNode;
 		}
 	}
 }
