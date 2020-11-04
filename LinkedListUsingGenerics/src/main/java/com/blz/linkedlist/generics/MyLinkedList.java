@@ -67,4 +67,16 @@ public class MyLinkedList<K> {
 		}
 		return keyNode;
 	}
+	
+	//UC8 Search for a Particular Node and Insert new Element after that
+	public void searchNodeAndInsert(INode<K> keyNode, INode<K> newNode)
+	{
+		INode<K> tempNode = this.head;
+		while(!tempNode.getNext().equals(keyNode)) {
+			tempNode = tempNode.getNext();
+		}
+		INode<K> newtempNode = keyNode.getNext();
+		keyNode.setNext(newNode);
+		newNode.setNext(newtempNode);
+	}
 }
