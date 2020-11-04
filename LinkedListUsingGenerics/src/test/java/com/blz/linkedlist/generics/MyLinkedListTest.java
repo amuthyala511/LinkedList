@@ -84,6 +84,7 @@ public class MyLinkedListTest {
 	}
 	
 	//UC7 Searching for a specific Node in the List
+	@Test
 	public void given3Numbers_searchSpecificNode() {
 		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
 		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
@@ -97,6 +98,7 @@ public class MyLinkedListTest {
 	}
 	
 	//UC8 Searching for a specific Node and Inserting new node after that
+	@Test
 	public void givenNumbers_searchforSpecificNode_InsertNewElement() {
 		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
 		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
@@ -109,8 +111,25 @@ public class MyLinkedListTest {
 		myList.searchNode(mySecondNode);
 		myList.searchNodeAndInsert(mySecondNode, myThirdNode);
 		boolean result = myList.head.equals(myFirstNode) && myList.head.getNext().equals(mySecondNode)
-						&& myList.head.getNext().equals(myThirdNode) && 
+						&& myList.head.getNext().getNext().equals(myThirdNode) && 
 						myList.tail.equals(myFourthNode);
-		Assert.assertTrue(result);
+		Assert.assertEquals(true, result);
+	}
+	
+	//UC9 Searching for a specific Node, deleting it and print list size
+	@Test
+	public void givenNumbers_searchAndDeleteSpecificNode_PrintListSize() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(40);
+		MyNode<Integer> myFourthNode = new MyNode<Integer>(56);
+		MyLinkedList<Integer> myList = new MyLinkedList<Integer>();
+		myList.appendElements(myFirstNode);
+		myList.appendElements(mySecondNode);
+		myList.appendElements(myThirdNode);
+		myList.appendElements(myFourthNode);
+		INode node = myList.deleteNodeInBetween(myThirdNode);
+		int size = myList.myListSize();
+		Assert.assertEquals(3, size);
 	}
 }
