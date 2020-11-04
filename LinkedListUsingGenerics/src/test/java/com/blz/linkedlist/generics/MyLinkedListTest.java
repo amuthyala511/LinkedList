@@ -82,4 +82,17 @@ public class MyLinkedListTest {
 		INode result = myList.deleteLastElement();
 		Assert.assertEquals(mySecondNode, result);
 	}
+	
+	//UC7 Searching for a specific Node in the List
+	public void given3Numbers_searchSpecificNode() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+		MyLinkedList<Integer> myList = new MyLinkedList<Integer>();
+		myList.appendElements(myFirstNode);
+		myList.appendElements(mySecondNode);
+		myList.appendElements(myThirdNode);
+		INode result = myList.searchNode(mySecondNode);
+		Assert.assertEquals(mySecondNode, result);
+	}
 }
