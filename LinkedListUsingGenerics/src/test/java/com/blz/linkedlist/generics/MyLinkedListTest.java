@@ -132,4 +132,26 @@ public class MyLinkedListTest {
 		int size = myList.myListSize();
 		Assert.assertEquals(3, size);
 	}
+	
+	//UC10 Creating Ordered Linked List
+	@Test
+	public void givenNumbers_GetSortedList() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(40);
+		MyNode<Integer> myFourthNode = new MyNode<Integer>(56);
+		MyLinkedList<Integer> myList = new MyLinkedList<Integer>();
+		myList.add(myFirstNode);
+		myList.appendElements(mySecondNode);
+		myList.appendElements(myThirdNode);
+		myList.appendElements(myFourthNode);
+		System.out.println("List before sorting: ");
+		myList.printMyNode();
+		myList.sortList();
+		System.out.println("List after sorting: ");
+		myList.printMyNode();
+		boolean result = myList.head.equals(myFirstNode) && myFirstNode.getNext().equals(mySecondNode)
+				 && mySecondNode.getNext().equals(myThirdNode) && myList.tail.equals(myFourthNode);
+		Assert.assertEquals(true, result);
+	}
 }
