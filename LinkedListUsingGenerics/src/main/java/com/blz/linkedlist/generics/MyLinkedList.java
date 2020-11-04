@@ -33,4 +33,11 @@ public class MyLinkedList<K> {
 			this.tail = newNode;
 		}
 	}
+	
+	//UC4 Adding Elements in between
+	public void insertElements(INode<K> node, INode<K> newNode) {
+		INode<K> tempNode = node.getNext();
+		node.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
 }
