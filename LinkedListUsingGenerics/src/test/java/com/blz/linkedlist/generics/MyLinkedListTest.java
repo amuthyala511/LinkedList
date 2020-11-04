@@ -67,4 +67,19 @@ public class MyLinkedListTest {
 		boolean result = MyLinkedList.head.equals(mySecondNode);
 		Assert.assertEquals(true, result);
 	}
+	
+	//UC6 Deleting Last Element
+	@Test
+	public void given3Numbers_deleteLastElement() {
+		MyNode<Integer> myFirstNode = new MyNode<Integer>(70);
+		MyNode<Integer> mySecondNode = new MyNode<Integer>(30);
+		MyNode<Integer> myThirdNode = new MyNode<Integer>(56);
+		MyLinkedList<Integer> myList = new MyLinkedList<Integer>();
+		myList.appendElements(myFirstNode);
+		myList.appendElements(mySecondNode);
+		myList.appendElements(myThirdNode);
+		myList.deleteLastElement();
+		INode result = myList.deleteLastElement();
+		Assert.assertEquals(mySecondNode, result);
+	}
 }

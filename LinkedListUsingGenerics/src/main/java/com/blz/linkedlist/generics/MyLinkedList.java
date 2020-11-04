@@ -47,4 +47,15 @@ public class MyLinkedList<K> {
 		this.head = head.getNext();
 		return tempNode;
 	}
+
+	//UC6 Deleting Last Element
+	public INode<K> deleteLastElement() {
+		INode<K> tempNode = this.head;
+		while(!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
+		return tempNode;
+	}
 }
